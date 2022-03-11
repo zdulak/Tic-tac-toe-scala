@@ -1,14 +1,15 @@
 package tictactoe.presentation
 
 import tictactoe.core._
+import tictactoe.core.games.Game
+import tictactoe.core.players.Human
 
 object TicTacToe {
   def main(args: Array[String]): Unit = {
-//    View.printAbout()
-    val x = Slot.Circle
-    println(x.opposite)
-    val b = new Board(3)
-    View.printBoard(b)
+    val playerCross = new Human(Slot.Cross, Controller)
+    val playerCircle = new Human(Slot.Circle, Controller)
+    val game = new Game(playerCross, playerCircle, View)
+    game.run()
   }
 
 }
