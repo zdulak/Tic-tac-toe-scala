@@ -15,6 +15,8 @@ class Board(val size: Int, slots: IndexedSeq[IndexedSeq[Slot.Value]]) {
 
   def isSlotFull(row: Int, col: Int): Boolean = apply(row, col) != Slot.Empty
 
+  def isFull: Boolean = _slots.forall(rowSlots => !rowSlots.contains(Slot.Empty))
+
   def hasWon(player: Slot.Value): Boolean = rowWon(player) || colWon(player) || diagWon(player)
 
   private def rowWon(player: Slot.Value): Boolean =
@@ -27,8 +29,8 @@ class Board(val size: Int, slots: IndexedSeq[IndexedSeq[Slot.Value]]) {
     }).contains(true)
   }
   private def diagWon(player: Slot.Value): Boolean = {
-    val diag1 = Vector.fill(3)(Slot.Empty) == (for (i <- 0 until size) yield apply(i, i))
-    val diag2 = Vector.fill(3)(Slot.Empty) == (for (i <- 0 until size) yield apply(size - 1 - i, i))
+    val diag1 = Vector.fill(3)(player) == (for (i <- 0 until size) yield apply(i, i))
+    val diag2 = Vector.fill(3)(player) == (for (i <- 0 until size) yield apply(size - 1 - i, i))
     diag1 || diag2
   }
 }

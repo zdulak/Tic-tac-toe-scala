@@ -2,8 +2,7 @@ package tictactoe.core.game
 
 import tictactoe.core.Slot
 
-sealed trait GameState {
-}
+sealed trait GameState
 
 case class Won(playerMark: Slot.Value) extends GameState
 case class Tie() extends GameState

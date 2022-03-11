@@ -13,7 +13,7 @@ object Controller extends  Controller {
   }
 
   @tailrec
-  def getHumanMove(board: Board, playerMark: Slot.Value): (Int, Int) = {
+  def getMove(board: Board, playerMark: Slot.Value): (Int, Int) = {
 //  a=97 in unicode, b=98, etc.
     lazy val translationTable = (for (i <- 0 until board.size) yield ((97 + i).toChar, i)).toMap
     val position =
@@ -25,18 +25,18 @@ object Controller extends  Controller {
       if ((0 until board.size).contains(row) && (0 until board.size).contains(col)) {
         if (board.isSlotFull(row,col)) {
             println("Slot is occupied.")
-            getHumanMove(board, playerMark)
+            getMove(board, playerMark)
           }
         else (row, col)
       }
       else {
         println("Invalid  coordinates")
-        getHumanMove(board, playerMark)
+        getMove(board, playerMark)
       }
     }
     else {
       println("Invalid  input")
-      getHumanMove(board, playerMark)
+      getMove(board, playerMark)
     }
   }
 }
