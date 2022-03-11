@@ -1,7 +1,9 @@
 package tictactoe.presentation
 
 import tictactoe.core.Board
+
 import java.io.IOException
+import scala.util.Try
 
 object View {
   def printMainMenu(): Unit = {
@@ -15,13 +17,14 @@ object View {
   def printAbout(): Unit ={
     println("This game was made by Damian Zdulski")
     println("Press Enter key to return to the main menu")
-    //Code below reads from keyboard when the enter key is pressed.
-    try {
-      System.in.read()
-    }
-    catch {
-      case _: IOException =>
-    }
+//    Code below reads from a keyboard when the enter key is pressed.
+//    try {
+//      System.in.read()
+//    }
+//    catch {
+//      case _: IOException =>
+//    }
+    Try { System.in.read()}
   }
 
   def printNewGameMenu(): Unit = {
