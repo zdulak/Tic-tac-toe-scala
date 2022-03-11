@@ -1,11 +1,11 @@
 package tictactoe.presentation
 
 import tictactoe.core.{Board, Slot}
-
+import tictactoe.core.traits.Controller
 import scala.annotation.tailrec
 import scala.io.StdIn.readLine
 
-object Controller {
+object Controller extends  Controller {
 
   def exit(): Nothing = {
     println("Goodbye!")

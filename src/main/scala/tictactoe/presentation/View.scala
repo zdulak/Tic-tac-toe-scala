@@ -1,11 +1,10 @@
 package tictactoe.presentation
 
 import tictactoe.core.Board
-
-import java.io.IOException
+import  tictactoe.core.traits.View
 import scala.util.Try
 
-object View {
+object View extends  View {
   def printMainMenu(): Unit = {
     println("The tic tac toe game")
     println("Choose one options from the list below.\n")
