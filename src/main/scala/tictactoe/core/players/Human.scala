@@ -1,5 +1,6 @@
 package tictactoe.core.players
+import tictactoe.core.{Board, Slot}
 
-class Human extends Player {
-
+class Human(playerMark: Slot.Value, board: Board) extends Player(playerMark, board) {
+  override def getMove: (Int, Int) = ???
 }

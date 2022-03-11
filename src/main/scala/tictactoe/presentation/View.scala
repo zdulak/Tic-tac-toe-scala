@@ -5,6 +5,8 @@ import  tictactoe.core.traits.View
 import scala.util.Try
 
 object View extends  View {
+  def printMsg(msg: String): Unit = println(msg)
+
   def printMainMenu(): Unit = {
     println("The tic tac toe game")
     println("Choose one options from the list below.\n")
