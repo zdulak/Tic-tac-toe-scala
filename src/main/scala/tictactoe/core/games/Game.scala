@@ -14,8 +14,8 @@ class Game (playerCross: Player, playerCircle: Player, view: View){
   private def doTurn(gameState: GameState, playerIndex: Int): Unit = {
     view.printBoard(gameState.board)
     gameState match {
-      case _: Tie => println("It's a tie!")
-      case w: Won => println("Player" + w.playerMark + " has won!")
+      case _: Tie => view.printMsg("It's a tie!")
+      case w: Won => view.printMsg("Player " + w.playerMark + " has won!")
       case _: InProgress =>
         doTurn(_players(playerIndex).makeMove(gameState.board), (playerIndex + 1) % 2)
     }

@@ -58,5 +58,6 @@ object View extends  View {
         }
       }
     }
+    println()
   }
 }

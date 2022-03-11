@@ -17,17 +17,18 @@ object Controller extends  Controller {
 //  a=97 in unicode, b=98, etc.
     lazy val translationTable = (for (i <- 0 until board.size) yield ((97 + i).toChar, i)).toMap
     val position =
-      readLine("Player " + playerMark + ", please enter the coordinates or write exit:").toLowerCase
+      readLine("Player " + playerMark + ", please enter the coordinates or write exit: \n").toLowerCase
     if (position == "exit") exit()
     if (position.length == 2 && position(0).isLetter && position(1).isDigit) {
       val row = translationTable(position(0))
-      val col = position(1).toInt - 1
+      val col = position(1).toString.toInt - 1
       if ((0 until board.size).contains(row) && (0 until board.size).contains(col)) {
         if (board.isSlotFull(row,col)) {
             println("Slot is occupied.")
             getMove(board, playerMark)
           }
-        else (row, col)
+        else
+          (row, col)
       }
       else {
         println("Invalid  coordinates")
