@@ -7,6 +7,8 @@ object TicTacToe {
 //    View.printAbout()
     val x = Slot.Circle
     println(x.opposite)
+    val b = new Board(3)
+    View.printBoard(b)
   }
 
 }

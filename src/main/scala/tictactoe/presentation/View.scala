@@ -1,6 +1,6 @@
 package tictactoe.presentation
 
-import scala.io.StdIn._
+import tictactoe.core.Board
 import java.io.IOException
 
 object View {
@@ -15,7 +15,7 @@ object View {
   def printAbout(): Unit ={
     println("This game was made by Damian Zdulski")
     println("Press Enter key to return to the main menu")
-
+    //Code below reads from keyboard when the enter key is pressed.
     try {
       System.in.read()
     }
@@ -31,5 +31,27 @@ object View {
     println("3. Computer vs player")
     println("4. Computer vs. computer")
     println("5. Return to main menu")
+  }
+
+  def printBoard(board: Board): Unit = {
+    val alphabet = for (i <- 0 until board.size) yield (i + 65).toChar
+
+    println()
+    for (i <- 1 to board.size) print("   " + i.toString)
+    println("\n")
+    for (row <- 0 until board.size) {
+      print(alphabet(row) + " ")
+      for (col <- 0 until board.size) {
+        print(" " + board(row, col).toString + " ")
+        if(col < board.size - 1) print("|") else println()
+      }
+      if (row < board.size - 1) {
+        print("  ")
+        for (col <- 0 until board.size) {
+          print("---")
+          if(col !=  board.size - 1) print("+") else println()
+        }
+      }
+    }
   }
 }
