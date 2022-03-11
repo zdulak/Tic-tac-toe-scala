@@ -17,7 +17,8 @@ class Board(val size: Int, slots: IndexedSeq[IndexedSeq[Slot.Value]]) {
 
   def hasWon(player: Slot.Value): Boolean = rowWon(player) || colWon(player) || diagWon(player)
 
-  private def rowWon(player: Slot.Value): Boolean = _slots.exists(rowSlots => rowSlots.forall(slot => slot == player))
+  private def rowWon(player: Slot.Value): Boolean =
+    _slots.exists(rowSlots => rowSlots.forall(slot => slot == player))
 
   private def colWon(player: Slot.Value): Boolean = {
     (for (col <- 0 until size) yield {

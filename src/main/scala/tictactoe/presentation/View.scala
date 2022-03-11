@@ -37,6 +37,7 @@ object View {
   }
 
   def printBoard(board: Board): Unit = {
+//    A=65 in unicode,B,C etc.
     val alphabet = for (i <- 0 until board.size) yield (i + 65).toChar
 
     println()
