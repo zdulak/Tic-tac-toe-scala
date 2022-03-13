@@ -1,6 +1,4 @@
-package tictactoe.core
-
-import scala.language.implicitConversions
+package tictactoe.core.boards
 
 object Slot extends Enumeration {
   protected case class SlotVal(name: String) extends super.Val(name) {
@@ -10,6 +8,7 @@ object Slot extends Enumeration {
       case _ => Empty
     }
   }
+
   implicit def valueToSlotVal(x: Value): SlotVal = x.asInstanceOf[SlotVal]
 
   val Circle: SlotVal = SlotVal("O")

@@ -1,6 +1,7 @@
 package tictactoe.presentation
 
 import tictactoe.core._
+import tictactoe.core.boards.Slot
 import tictactoe.core.games.Game
 import tictactoe.core.players.Human
 
