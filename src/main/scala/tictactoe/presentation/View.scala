@@ -19,14 +19,16 @@ object View extends  View {
   def printAbout(): Unit ={
     println("This game was made by Damian Zdulski")
     println("Press Enter key to return to the main menu")
-//    Code below reads from a keyboard when the enter key is pressed.
-//    try {
-//      System.in.read()
-//    }
-//    catch {
-//      case _: IOException =>
-//    }
+    //Code below reads from a keyboard when the enter key is pressed.
     Try { System.in.read()}
+
+    //Alternative solution
+    //    try {
+    //      System.in.read()
+    //    }
+    //    catch {
+    //      case _: IOException =>
+    //    }
   }
 
   def printNewGameMenu(): Unit = {
@@ -43,17 +45,22 @@ object View extends  View {
     val alphabet = for (i <- 0 until board.size) yield (i + 65).toChar
 
     println()
+    // At the top print:   1   2   3
     for (i <- 1 to board.size) print("   " + i.toString)
     println("\n")
     for (row <- 0 until board.size) {
+      // print letter in each row
       print(alphabet(row) + " ")
       for (col <- 0 until board.size) {
+        // print: . | . | .
         print(" " + board(row, col).toString + " ")
         if(col < board.size - 1) print("|") else println()
       }
       if (row < board.size - 1) {
+        //print space between letter and slots
         print("  ")
         for (col <- 0 until board.size) {
+          //separate each row with:---+---+---
           print("---")
           if(col !=  board.size - 1) print("+") else println()
         }
