@@ -9,8 +9,8 @@ abstract class Player(val playerMark: Slot.Value) {
   def makeMove(gameState: InProgress): GameState = {
     val (row, col) = getMove(gameState.board)
     val newBoard = gameState.board.mark(row, col, playerMark)
-    if (newBoard.hasWon(playerMark)) Won(playerMark, newBoard)
+    if (newBoard.hasWon(playerMark)) Won(newBoard, playerMark)
     else if (newBoard.isFull) Tie(newBoard)
-    else InProgress(newBoard, (gameState.playerIndex + 1) % 2)
+    else InProgress(newBoard, gameState.currentPlayer.opposite)
   }
 }
