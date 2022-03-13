@@ -1,6 +1,6 @@
 package tictactoe.core.traits
 
-import tictactoe.core.Board
+import tictactoe.core.boards.Board
 
 trait View {
   def printMsg(msg: String): Unit

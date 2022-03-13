@@ -1,4 +1,4 @@
-package tictactoe.core
+package tictactoe.core.boards
 
 class Board(val size: Int, slots: IndexedSeq[IndexedSeq[Slot.Value]]) {
   private val _slots = slots

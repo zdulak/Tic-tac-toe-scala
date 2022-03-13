@@ -1,8 +1,9 @@
 package tictactoe.core.games
 
-import tictactoe.core.Board
+import tictactoe.core.boards.Board
 import tictactoe.core.players.Player
 import tictactoe.core.traits.View
+
 import scala.annotation.tailrec
 
 class Game (playerCross: Player, playerCircle: Player, view: View){

@@ -1,7 +1,8 @@
 package tictactoe.presentation
 
-import tictactoe.core.Board
-import  tictactoe.core.traits.View
+import tictactoe.core.boards.Board
+import tictactoe.core.traits.View
+
 import scala.util.Try
 
 object View extends  View {

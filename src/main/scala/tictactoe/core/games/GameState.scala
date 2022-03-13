@@ -1,6 +1,7 @@
 package tictactoe.core.games
 
-import tictactoe.core.{Board, Slot}
+import tictactoe.core.boards.Slot
+import tictactoe.core.boards.{Board, Slot}
 
 sealed trait GameState {
   val board: Board
