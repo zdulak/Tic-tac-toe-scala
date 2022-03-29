@@ -15,11 +15,13 @@ object ConsoleView extends  View {
     println("3. Exit")
   }
 
-  def printAbout(): Unit ={
+  def printAbout(): Unit = {
     println("This game was made by Damian Zdulski")
     println("Press Enter key to return to the main menu")
     //Code below reads from a keyboard when the enter key is pressed.
-    Try { System.in.read()}
+    Try {
+      System.in.read()
+    }
 
     //Alternative solution
     //    try {
@@ -40,31 +42,24 @@ object ConsoleView extends  View {
   }
 
   def printBoard(board: Board): Unit = {
-//    A=65 in unicode,B,C etc.
+    //    A=65 in unicode,B,C etc.
     val alphabet = for (i <- 0 until board.size) yield (i + 65).toChar
-
+    val border = ("  " + "---+" * board.size).dropRight(1)
+    
     println()
     // At the top print:   1   2   3
-    for (i <- 1 to board.size) print("   " + i.toString)
+    (1 to board.size).foreach(i => print("   " + i.toString))
     println("\n")
-    for (row <- 0 until board.size) {
-      // print letter in each row
-      print(alphabet(row) + " ")
-      for (col <- 0 until board.size) {
-        // print: . | . | .
-        print(" " + board(row, col).toString + " ")
-        if(col < board.size - 1) print("|") else println()
+
+    (0 until board.size)
+      .map(i => board(i).map(_.toString))
+      .map(_.mkString(" ", " | ", " "))
+      .zipWithIndex
+      .foreach { case (rowString, i) =>
+        println(alphabet(i) + " " + rowString)
+        if (i != 2) println(border)
       }
-      if (row < board.size - 1) {
-        //print space between letter and slots
-        print("  ")
-        for (col <- 0 until board.size) {
-          //separate each row with:---+---+---
-          print("---")
-          if(col !=  board.size - 1) print("+") else println()
-        }
-      }
-    }
+
     println()
   }
 }
