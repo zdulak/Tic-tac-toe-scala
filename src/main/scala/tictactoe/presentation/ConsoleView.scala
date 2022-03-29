@@ -57,7 +57,7 @@ object ConsoleView extends  View {
       .zipWithIndex
       .foreach { case (rowString, i) =>
         println(alphabet(i) + " " + rowString)
-        if (i != board.size - 1) println(border)
+        if (i != (board.size - 1)) println(border)
       }
 
     println()

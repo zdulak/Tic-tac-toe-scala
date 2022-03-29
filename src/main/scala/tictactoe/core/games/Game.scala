@@ -1,12 +1,12 @@
 package tictactoe.core.games
 
-import tictactoe.core.boards.{DefaultBoard, Slot}
+import tictactoe.core.boards.Slot
 import tictactoe.core.players.Player
 import tictactoe.core.traits.View
 
 import scala.annotation.tailrec
 
-class Game (playerCross: Player, playerCircle: Player, view: View){
+class Game (playerCross: Player, playerCircle: Player, view: View) {
   private val _players = Map(Slot.Cross -> playerCross, Slot.Circle -> playerCircle)
 
   @tailrec
@@ -20,3 +20,4 @@ class Game (playerCross: Player, playerCircle: Player, view: View){
     }
   }
 }
+

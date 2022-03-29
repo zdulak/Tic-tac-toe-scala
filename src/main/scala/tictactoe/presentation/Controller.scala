@@ -2,7 +2,6 @@ package tictactoe.presentation
 
 import tictactoe.core.boards.Slot
 import tictactoe.core.traits.{Board, Controller}
-
 import scala.annotation.tailrec
 import scala.io.StdIn.readLine
 
@@ -47,6 +46,19 @@ object Controller extends  Controller {
     else {
       println("Invalid  input")
       getMove(board, playerMark)
+    }
+  }
+
+  @tailrec
+  def getMenuChoice(lowerBound: Int, upperBound: Int, message: () => Unit): Int = {
+    message()
+    val choice = readLine().toIntOption
+    choice match {
+      case Some(value) if (value >= lowerBound && value <= upperBound) => value - 1
+      case _ => {
+        println("Invalid input")
+        getMenuChoice(lowerBound, upperBound, message)
+      }
     }
   }
 }
