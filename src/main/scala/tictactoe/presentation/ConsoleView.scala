@@ -45,7 +45,7 @@ object ConsoleView extends  View {
     //    A=65 in unicode,B,C etc.
     val alphabet = for (i <- 0 until board.size) yield (i + 65).toChar
     val border = ("  " + "---+" * board.size).dropRight(1)
-    
+
     println()
     // At the top print:   1   2   3
     (1 to board.size).foreach(i => print("   " + i.toString))
