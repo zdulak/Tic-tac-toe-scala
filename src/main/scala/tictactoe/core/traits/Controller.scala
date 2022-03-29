@@ -1,6 +1,6 @@
 package tictactoe.core.traits
 
-import tictactoe.core.boards.{Board, Slot}
+import tictactoe.core.boards.Slot
 
 trait Controller {
   def exit(): Nothing

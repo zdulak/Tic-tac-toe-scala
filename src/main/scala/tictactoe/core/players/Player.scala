@@ -1,7 +1,8 @@
 package tictactoe.core.players
 
+import tictactoe.core.boards.Slot
 import tictactoe.core.games.GameState
-import tictactoe.core.boards.{Board, Slot}
+import tictactoe.core.traits.Board
 
 abstract class Player(val playerMark: Slot.Value) {
   def getMove(board: Board): (Int, Int)

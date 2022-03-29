@@ -1,17 +1,20 @@
 package tictactoe.core.boards
+import tictactoe.core.traits.Board
 
-class Board(val size: Int, slots: IndexedSeq[IndexedSeq[Slot.Value]]) {
+class DefaultBoard(slots: IndexedSeq[IndexedSeq[Slot.Value]]) extends Board {
+  val size: Int =  slots.length
   private val _slots = slots
-  
-  def this(size: Int) = this(size,
-    for (_ <- 0 until size) yield for (_ <- 0 until size) yield Slot.Empty)
+
+  def this(size: Int) = this(for (_ <- 0 until size) yield for (_ <- 0 until size) yield Slot.Empty)
+
+  def apply(row: Int): Seq[Slot.Value] = _slots(row)
 
   def apply(row: Int, col: Int): Slot.Value = _slots(row)(col)
 
-  def mark(row: Int, col: Int, slotValue: Slot.Value): Board =
-    new Board(size, _slots.updated(row, _slots(row).updated(col, slotValue)))
+  def mark(row: Int, col: Int, slotValue: Slot.Value): DefaultBoard =
+    new DefaultBoard(_slots.updated(row, _slots(row).updated(col, slotValue)))
 
-  def unmark(row: Int, col: Int): Board = mark(row, col, Slot.Empty)
+  def unmark(row: Int, col: Int): DefaultBoard = mark(row, col, Slot.Empty)
 
   def isSlotFull(row: Int, col: Int): Boolean = apply(row, col) != Slot.Empty
 

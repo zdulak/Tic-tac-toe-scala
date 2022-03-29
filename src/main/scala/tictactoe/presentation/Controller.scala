@@ -1,7 +1,8 @@
 package tictactoe.presentation
 
-import tictactoe.core.boards.{Board, Slot}
-import tictactoe.core.traits.Controller
+import tictactoe.core.boards.Slot
+import tictactoe.core.traits.{Board, Controller}
+
 import scala.annotation.tailrec
 import scala.io.StdIn.readLine
 
