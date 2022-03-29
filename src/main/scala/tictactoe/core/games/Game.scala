@@ -9,16 +9,16 @@ import scala.annotation.tailrec
 class Game (playerCross: Player, playerCircle: Player, view: View){
   private val _players = Map(Slot.Cross -> playerCross, Slot.Circle -> playerCircle)
 
-  def run(): Unit = doTurn(InProgress(new Board(3), Slot.Cross))
+  def run(): Unit = doTurn(GameState.InProgress(new Board(3), Slot.Cross))
 
   @tailrec
   private def doTurn(gameState: GameState): Unit = {
     view.printBoard(gameState.board)
     gameState match {
-      case _: Tie => view.printMsg("It's a tie!")
-      case w: Won => view.printMsg("Player " + w.playerMark + " has won!")
-      case g: InProgress =>
-        doTurn(_players(g.currentPlayer).makeMove(g))
+      case _: GameState.Tie => view.printMsg("It's a tie!")
+      case won: GameState.Won => view.printMsg("Player " + won.playerMark + " has won!")
+      case inProgress: GameState.InProgress =>
+        doTurn(_players(inProgress.currentPlayer).makeMove(inProgress))
     }
   }
 }

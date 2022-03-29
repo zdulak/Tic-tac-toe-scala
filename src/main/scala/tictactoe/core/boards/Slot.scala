@@ -1,5 +1,7 @@
 package tictactoe.core.boards
 
+import scala.language.implicitConversions
+
 object Slot extends Enumeration {
   protected case class SlotVal(name: String) extends super.Val(name) {
     def opposite: SlotVal = this match {
