@@ -6,8 +6,8 @@ import tictactoe.core.traits.View
 
 import scala.annotation.tailrec
 
-class Game (playerCross: Player, playerCircle: Player, view: View) {
-  private val _players = Map(Slot.Cross -> playerCross, Slot.Circle -> playerCircle)
+class Game(playerCross: Player, playerCircle: Player, view: View) {
+  private val _players = Map(Slot.X -> playerCross, Slot.O -> playerCircle)
 
   @tailrec
   final def run(gameState: GameState): Unit = {
