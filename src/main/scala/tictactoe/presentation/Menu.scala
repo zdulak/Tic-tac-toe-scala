@@ -8,7 +8,7 @@ object Menu {
     menu(List(newGameMenu, aboutMenu, Controller.exit), ConsoleView.printMainMenu)
 
   def newGameMenu(): Unit = {
-    val newGame = GameState.InProgress(new DefaultBoard(3), Slot.Cross)
+    val newGame = GameState.InProgress(new DefaultBoard(3), Slot.X)
     menu(List(
       () => GameFactory(isCrossAi = false, isCircleAi = false).run(newGame),
       () => GameFactory(isCrossAi = false, isCircleAi = true).run(newGame),

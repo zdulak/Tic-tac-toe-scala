@@ -4,7 +4,7 @@ import tictactoe.core.traits.{Board, View}
 
 import scala.util.Try
 
-object ConsoleView extends  View {
+object ConsoleView extends View {
   def printMsg(msg: String): Unit = println(msg)
 
   def printMainMenu(): Unit = {
